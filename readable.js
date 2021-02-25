@@ -1,4 +1,4 @@
-const blackList = new Set(['_write', '_writableState'])
+const blackList = new Set(['_write', '_writableState', 'writable'])
 
 function readable (duplex) {
   return new Proxy(duplex, {
