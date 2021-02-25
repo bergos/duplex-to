@@ -20,7 +20,9 @@ describe('writable', () => {
     const result = duplexToWritable(new PassThrough())
 
     assert(!isStream.isReadable(result))
+    assert(!result.readable) // used by stream.finished
     assert(isStream.isWritable(result))
+    assert(result.writable) // used by stream.finished
   })
 
   it('should keep object mode information', () => {
