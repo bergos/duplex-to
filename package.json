@@ -1,6 +1,6 @@
 {
   "name": "duplex-to",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Wraps a duplex stream and hides the readable or the writable interface",
   "main": "index.js",
   "scripts": {
