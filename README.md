@@ -1,4 +1,6 @@
 # duplex-to
+[![build status](https://img.shields.io/github/workflow/status/bergos/duplex-to/Test)](https://github.com/bergos/duplex-to/actions/workflows/test.yaml)
+[![npm version](https://img.shields.io/npm/v/duplex-to.svg)](https://www.npmjs.com/package/duplex-to)
 
 `duplex-to` wraps a duplex stream with a `Proxy` and hides the readable or the writable interface.
 Hidding part of the interface can be useful in cases where errors are thrown or the code behaves different based on the interface type. 
@@ -12,8 +14,8 @@ The `readable` function wraps a duplex stream to show only the readable interfac
 It can be loaded either by path or from the main module by property:
 
 ```js
-const readable = require('duplex-to/readable')
-const { readable } = require('duplex-to')
+import readable from 'duplex-to/readable.js'
+import { readable } from 'duplex-to'
 ```
 
 The function is a factory which returns the wrapped stream.
@@ -29,8 +31,8 @@ The `writable` function wraps a duplex stream to show only the writable interfac
 It can be loaded either by path or from the main module by property:
 
 ```js
-const writable = require('duplex-to/writable')
-const { writable } = require('duplex-to')
+import writable from 'duplex-to/writable.js'
+import { writable } from 'duplex-to'
 ```
 
 The function is a factory which returns the wrapped stream.
@@ -47,15 +49,15 @@ The function `noWritablesAccepted` accepts only readable streams and writes the 
 Passing the `PassThrough` object to the function would throw an error, but with the wrapper only the readable part is visible to the function.
 
 ```js
-const duplexToReadable = require('duplex-to/readable')
-const isStream = require('isstream')
-const { PassThrough } = require('readable-stream')
+import duplexToReadable from 'duplex-to/readable.js'
+import { isWritableStream } from 'is-stream'
+import { PassThrough } from 'readable-stream'
 
 // dummy function which
 //   - doesn't accept streams with writable interface
 //   - just writes the incoming data to stdout 
 function noWritablesAccepted (stream) {
-  if (isStream.isWritable(stream)) {
+  if (isWritableStream(stream)) {
     throw new Error('no writable streams supported')
   }
 

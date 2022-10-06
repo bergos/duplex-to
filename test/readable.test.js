@@ -1,9 +1,9 @@
-const assert = require('assert')
-const getStream = require('get-stream')
-const isStream = require('isstream')
-const { describe, it } = require('mocha')
-const duplexToReadable = require('../readable')
-const { PassThrough } = require('readable-stream')
+import assert from 'assert'
+import { isStream, isReadableStream, isWritableStream } from 'is-stream'
+import { describe, it } from 'mocha'
+import { PassThrough } from 'readable-stream'
+import decode from 'stream-chunks/decode.js'
+import duplexToReadable from '../readable.js'
 
 describe('readable', () => {
   it('should be a function', () => {
@@ -19,9 +19,9 @@ describe('readable', () => {
   it('should wrap only the readable interface', () => {
     const result = duplexToReadable(new PassThrough())
 
-    assert(isStream.isReadable(result))
+    assert(isReadableStream(result))
     assert(result.readable) // used by stream.finished
-    assert(!isStream.isWritable(result))
+    assert(!isWritableStream(result))
     assert(!result.writable) // used by stream.finished
   })
 
@@ -39,7 +39,7 @@ describe('readable', () => {
     input.write('b')
     input.end('c')
 
-    const result = await getStream(output)
+    const result = await decode(output)
 
     assert.strictEqual(result, 'abc')
   })

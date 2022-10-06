@@ -32,4 +32,4 @@ function writable (duplex) {
   })
 }
 
-module.exports = writable
+export default writable
