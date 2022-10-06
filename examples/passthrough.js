@@ -1,6 +1,6 @@
-const duplexToReadable = require('../readable')
 const isStream = require('isstream')
 const { PassThrough } = require('readable-stream')
+const duplexToReadable = require('../readable')
 
 // dummy function which
 //   - doesn't accept streams with writable interface

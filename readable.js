@@ -32,4 +32,4 @@ function readable (duplex) {
   })
 }
 
-module.exports = readable
+export default readable

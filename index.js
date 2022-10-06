@@ -1,7 +1,7 @@
-const readable = require('./readable')
-const writable = require('./writable')
+import readable from './readable.js'
+import writable from './writable.js'
 
-module.exports = {
+export {
   readable,
   writable
 }
