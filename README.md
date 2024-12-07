@@ -1,5 +1,6 @@
 # duplex-to
-[![build status](https://img.shields.io/github/workflow/status/bergos/duplex-to/Test)](https://github.com/bergos/duplex-to/actions/workflows/test.yaml)
+
+[![build status](https://img.shields.io/github/actions/workflow/status/bergos/duplex-to/test.yaml?branch=master)](https://github.com/bergos/duplex-to/actions/workflows/test.yaml)
 [![npm version](https://img.shields.io/npm/v/duplex-to.svg)](https://www.npmjs.com/package/duplex-to)
 
 `duplex-to` wraps a duplex stream with a `Proxy` and hides the readable or the writable interface.
