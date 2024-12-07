@@ -30,6 +30,6 @@
     "mocha": "^11.0.1",
     "readable-stream": "^4.2.0",
     "stream-chunks": "^1.0.0",
-    "stricter-standard": "^0.2.0"
+    "stricter-standard": "^0.3.1"
   }
 }
